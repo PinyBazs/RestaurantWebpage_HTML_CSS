@@ -1,0 +1,195 @@
+@import 'styles/variables/0_fonts/fonts.scss';
+@import 'styles/variables/1_color/color.scss';
+@import 'styles/variables/2_mixins/mixins.scss';
+@import 'styles/variables//3_breakpoints/breakpoints.scss';
+
+*{
+    @include layout;
+}
+body{
+    @include layout;
+    @include imageLayout;
+    @include maxCanvas;
+    background-image: url('images/bg.jpg');
+    
+}
+.top-panel{
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    background-color: $topPanelBackground;
+    
+}
+
+
+.title-container{
+    top: 50px;
+    position: absolute;
+    width: 100%;
+    @include flexCenter;
+}
+.title{
+    @include fontstyle();
+    font-size: $titleSize;
+}
+.top-nav-bar{
+    background-color: $navbarBackground;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+.nav-links{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+a{
+    @include fontstyle();
+    color: $topPanelBackground;
+    text-decoration: none;
+    width: 10%;
+    
+    
+}
+.menu-container{
+    margin: auto;
+    width: 50%;
+    height: 70vh;
+    background-color: $menuContainer;
+    overflow-y: auto;
+    
+}
+.menu{
+    width: 100%;
+}
+.type{
+    text-decoration: underline;
+    text-align: left;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: $WorkSans;
+}
+.price{
+    width: 25%;
+    text-align: right;
+    font-size: 16px;
+    font-family: $WorkSans;
+    font-weight: 800;
+    padding: 20px;
+}
+.name{
+    width: 25%;
+    text-align: left;
+    font-size: 16px;
+    font-family: $WorkSans;
+    font-weight: 600;
+    padding: 20px;
+}
+
+.menutitle{
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+    font-family: $WorkSans;
+}
+
+@keyframes logo{
+    0%{
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes aboutUs{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.menulink{
+    list-style: none;
+    @include flexCenter;
+    
+}
+
+@media screen and (max-width: $laptop){
+    .menu-container{
+        width: 100%;
+    }
+    .top-panel{
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+    }
+    .title-container{
+        top: 0;
+    }
+    .logo{
+        opacity: 0;
+        position: absolute;
+    }
+    .top-nav-bar{
+        height: 10vh;
+    }
+    .nav-links{
+        width: 100%;
+    }
+    @media screen and (max-width: $tablet){
+       
+        .top-panel{
+            height: 10vh;
+            grid-template-columns: auto;
+            grid-template-rows: auto;
+        }
+    
+        .logo{
+            opacity: 0;
+        }
+        .top-nav-bar{
+            @include maxCanvas;
+            
+        }
+        .nav-links{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .about-us-btn{
+            width: 150px;
+            height: 30px;
+            font-size: 8px;
+        }
+       
+        a{
+            font-size: 12px;
+            margin-bottom: 10px;
+            margin-top:10px;
+        }
+        .title{
+            font-size: 22px;
+        }
+        
+    }
+    @media screen and(max-width: $phone){
+        .top-nav-bar{
+            @include maxCanvas;
+            
+        }
+    }
+}
+
